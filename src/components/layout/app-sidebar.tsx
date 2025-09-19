@@ -45,14 +45,14 @@ export default function AppSidebar() {
               key={item.label}
               href={item.href}
               className={cn(
-                'flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary',
-                { 'bg-muted text-primary': pathname === item.href }
+                'flex items-center gap-3 rounded-lg px-3 py-3 text-sidebar-foreground transition-all hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
+                { 'bg-sidebar-accent text-sidebar-accent-foreground': pathname === item.href }
               )}
             >
               <item.icon className="h-4 w-4" />
               {item.label}
               {item.isAi && (
-                <Badge className="ml-auto flex h-5 w-auto shrink-0 items-center justify-center rounded-md border border-accent/20 bg-accent/10 px-2 text-xs font-normal text-accent">
+                <Badge className="ml-auto flex h-5 w-auto shrink-0 items-center justify-center rounded-md border-transparent bg-accent/20 px-2 text-xs font-semibold text-accent">
                   AI
                 </Badge>
               )}
