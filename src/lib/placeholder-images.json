@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "otolith",
+      "description": "An image of a fish otolith.",
+      "imageUrl": "https://picsum.photos/seed/otolith1/800/600",
+      "imageHint": "otolith fish"
+    },
+    {
+      "id": "ocean-map",
+      "description": "A styled world map for visualizing ocean data.",
+      "imageUrl": "https://picsum.photos/seed/oceanmap1/1600/900",
+      "imageHint": "world map"
+    }
+  ]
 }
