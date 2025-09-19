@@ -53,20 +53,22 @@ export type CrossDomainCorrelationOutput = z.infer<
   typeof CrossDomainCorrelationOutputSchema
 >;
 
-const datasetSelectorTool = ai.defineTool({
-  name: 'datasetSelector',
-  description: 'Selects relevant oceanographic and biodiversity datasets based on user criteria.',
-  inputSchema: z.object({
-    keywords: z.string().describe('Keywords describing the desired datasets.'),
-  }),
-  outputSchema: z.object({
-    oceanographicDatasets: z
-      .array(z.string())
-      .describe('List of relevant oceanographic datasets.'),
-    biodiversityDatasets: z
-      .array(z.string())
-      .describe('List of relevant biodiversity datasets.'),
-  }),
+const datasetSelectorTool = ai.defineTool(
+  {
+    name: 'datasetSelector',
+    description: 'Selects relevant oceanographic and biodiversity datasets based on user criteria.',
+    inputSchema: z.object({
+      keywords: z.string().describe('Keywords describing the desired datasets.'),
+    }),
+    outputSchema: z.object({
+      oceanographicDatasets: z
+        .array(z.string())
+        .describe('List of relevant oceanographic datasets.'),
+      biodiversityDatasets: z
+        .array(z.string())
+        .describe('List of relevant biodiversity datasets.'),
+    }),
+  },
   async (input) => {
     // Placeholder implementation for dataset selection based on keywords.
     // In a real application, this would query a database or external API.
@@ -83,8 +85,8 @@ const datasetSelectorTool = ai.defineTool({
         'Plankton Biomass Data',
       ],
     };
-  },
-});
+  }
+);
 
 const correlationAnalysisPrompt = ai.definePrompt({
   name: 'correlationAnalysisPrompt',
@@ -120,5 +122,3 @@ export async function crossDomainCorrelation(
 ): Promise<CrossDomainCorrelationOutput> {
   return crossDomainCorrelationFlow(input);
 }
-
-export {CrossDomainCorrelationInput, CrossDomainCorrelationOutput};
