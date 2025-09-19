@@ -52,7 +52,7 @@ export default function AppSidebar() {
               <item.icon className="h-4 w-4" />
               {item.label}
               {item.isAi && (
-                <Badge className="ml-auto flex h-5 w-auto shrink-0 items-center justify-center rounded-md px-2 bg-accent/20 text-accent border border-accent/30 text-xs">
+                <Badge className="ml-auto flex h-5 w-auto shrink-0 items-center justify-center rounded-md px-2 bg-accent/20 text-accent border-none text-xs">
                   AI
                 </Badge>
               )}
