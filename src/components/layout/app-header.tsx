@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 export default function AppHeader() {
   return (
-    <header className="flex h-14 items-center gap-4 border-b bg-background/50 px-4 lg:h-[60px] lg:px-6 backdrop-blur-md z-20">
+    <header className="flex h-14 items-center gap-4 border-b bg-background/30 px-4 lg:h-[60px] lg:px-6 backdrop-blur-lg z-20">
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="shrink-0 md:hidden">

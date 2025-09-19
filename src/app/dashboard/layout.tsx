@@ -7,7 +7,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <BackgroundVideo />
-      <aside className="hidden border-r bg-sidebar/50 backdrop-blur-md md:block">
+      <aside className="hidden border-r bg-sidebar/80 backdrop-blur-xl md:block">
         <AppSidebar />
       </aside>
       <div className="flex flex-col">
