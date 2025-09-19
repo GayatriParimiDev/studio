@@ -29,7 +29,7 @@ export default function AppSidebar() {
 
   return (
     <div className="flex h-full max-h-screen flex-col gap-2">
-      <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
+      <div className="flex h-14 items-center border-b border-sidebar-border px-4 lg:h-[60px] lg:px-6">
         <Link
           href="/dashboard"
           className="flex items-center gap-2 font-semibold text-primary"
@@ -45,14 +45,14 @@ export default function AppSidebar() {
               key={item.label}
               href={item.href}
               className={cn(
-                'flex items-center gap-3 rounded-lg px-3 py-3 text-sidebar-foreground transition-all hover:bg-sidebar-accent hover:text-primary',
-                { 'bg-sidebar-accent text-primary': pathname === item.href }
+                'flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary',
+                { 'bg-muted text-primary': pathname === item.href }
               )}
             >
               <item.icon className="h-4 w-4" />
               {item.label}
               {item.isAi && (
-                <Badge className="ml-auto flex h-5 w-auto shrink-0 items-center justify-center rounded-md px-2 bg-accent/20 text-accent border-none text-xs">
+                <Badge className="ml-auto flex h-5 w-auto shrink-0 items-center justify-center rounded-md border border-accent/20 bg-accent/10 px-2 text-xs font-normal text-accent">
                   AI
                 </Badge>
               )}
