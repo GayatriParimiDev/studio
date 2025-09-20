@@ -15,6 +15,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 z-10">
           {children}
         </main>
+        <footer className="p-4 text-center text-sm text-muted-foreground z-10">
+          @2025 all rights reserved
+        </footer>
       </div>
     </div>
   );
