@@ -8,9 +8,9 @@
     },
     {
       "id": "ocean-map",
-      "description": "A styled world map for visualizing ocean data.",
-      "imageUrl": "https://picsum.photos/seed/oceanmap1/1600/900",
-      "imageHint": "world map"
+      "description": "A vibrant coral reef teeming with fish.",
+      "imageUrl": "https://images.unsplash.com/photo-1524704796725-9fc3044a58b5?q=80&w=1600&h=900&fit=crop",
+      "imageHint": "coral reef"
     }
   ]
 }
