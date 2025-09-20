@@ -99,10 +99,7 @@ Datasets: Oceanographic - {{{datasetSelection.oceanographicDatasets}}}, Biodiver
 Analysis Parameters: Type - {{{analysisParameters.correlationType}}}, Significance - {{{analysisParameters.significanceLevel}}}
 Search Refinement Query: {{{searchRefinementQuery}}}
 
-Provide a concise analysis of the correlations found and key insights derived from the analysis.
-
-Analysis Results: {{analysisResults}}
-Insights: {{insights}}`,
+Provide a concise analysis of the correlations found and key insights derived from the analysis.`,
 });
 
 const crossDomainCorrelationFlow = ai.defineFlow(
