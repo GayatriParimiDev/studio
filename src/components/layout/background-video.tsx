@@ -12,7 +12,7 @@ export function BackgroundVideo() {
         poster="https://picsum.photos/seed/oceanbg/1920/1080"
       >
         <source
-          src="https://videos.pexels.com/video-files/853877/853877-hd_1920_1080_25fps.mp4"
+          src="https://videos.pexels.com/video-files/3765078/3765078-hd_1920_1080_30fps.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.
