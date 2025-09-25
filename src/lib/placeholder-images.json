@@ -3,14 +3,14 @@
     {
       "id": "otolith",
       "description": "An image of a fish otolith.",
-      "imageUrl": "https://picsum.photos/seed/otolith1/800/600",
+      "imageUrl": "https://images.unsplash.com/photo-1674314919169-f31ebc28d14f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b3RvbGl0aCUyMGZpc2h8ZW58MHx8fHwxNzU4ODE0NjUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "otolith fish"
     },
     {
       "id": "ocean-map",
-      "description": "A vibrant coral reef teeming with fish.",
+      "description": "A world map showing ocean currents.",
       "imageUrl": "https://images.pexels.com/photos/4610202/pexels-photo-4610202.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop",
-      "imageHint": "coral reef"
+      "imageHint": "ocean map"
     }
   ]
 }
