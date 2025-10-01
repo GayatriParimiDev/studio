@@ -1,5 +1,158 @@
-import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowRight, Waves, Fish, Dna, Microscope } from 'lucide-react';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-export default function Home() {
-  redirect('/dashboard');
+const features = [
+  {
+    icon: Waves,
+    title: 'Unified Data Platform',
+    description:
+      'Integrate diverse datasets from oceanography, fisheries, and molecular biodiversity into a single, cohesive view.',
+  },
+  {
+    icon: Fish,
+    title: 'AI-Powered Insights',
+    description:
+      'Leverage cutting-edge AI to uncover hidden patterns, perform cross-domain analysis, and identify species with our taxonomic assistant.',
+  },
+  {
+    icon: Dna,
+    title: 'Interactive Visualizers',
+    description:
+      'Engage with your data through interactive maps, otolith morphology simulators, and eDNA sequence matchers.',
+  },
+];
+
+const articles = [
+  {
+    id: 'article-1',
+    title: 'The Silent Storytellers: What Otoliths Reveal About Fish',
+    summary:
+      'Fish ear stones, or otoliths, are more than just biological structures; they are natural data recorders. By analyzing their growth rings, we can determine the age, growth rate, and environmental conditions a fish has experienced, providing invaluable data for fisheries management.',
+    imageUrl: 'https://picsum.photos/seed/article1/600/400',
+    imageHint: 'otolith fish',
+  },
+  {
+    id: 'article-2',
+    title: 'eDNA: Unlocking Marine Biodiversity from a Drop of Water',
+    summary:
+      'Environmental DNA (eDNA) is revolutionizing how we monitor marine ecosystems. By sequencing DNA fragments in the water, scientists can detect species presence without ever seeing or capturing them, offering a non-invasive tool for biodiversity assessment.',
+    imageUrl: 'https://picsum.photos/seed/article2/600/400',
+    imageHint: 'marine biology lab',
+  },
+  {
+    id: 'article-3',
+    title: 'Connecting the Dots: Ocean Currents and Species Distribution',
+    summary:
+      'Oceanographic parameters like temperature and salinity are deeply connected to where marine life thrives. Our platform helps correlate this data to predict how changes in ocean climate might impact fish populations and biodiversity hotspots across the globe.',
+    imageUrl: 'https://picsum.photos/seed/article3/600/400',
+    imageHint: 'ocean currents map',
+  },
+];
+
+export default function LandingPage() {
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-ocean');
+  return (
+    <div className="flex flex-col min-h-screen">
+      <div className="relative">
+        <div className="absolute inset-0 -z-10 h-[50vh] md:h-[60vh]">
+        {heroImage && (
+             <Image
+             src={heroImage.imageUrl}
+             alt={heroImage.description}
+             fill
+             className="object-cover"
+             data-ai-hint={heroImage.imageHint}
+           />
+        )}
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <main className="relative container mx-auto px-4 py-16 text-center text-white">
+          <div className="flex flex-col items-center pt-16 md:pt-24">
+            <div className="flex items-center gap-2 font-semibold text-primary">
+              <Waves className="h-8 w-8 text-accent" />
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                Aqua Insights
+              </h1>
+            </div>
+            <p className="mt-4 max-w-2xl text-lg md:text-xl text-neutral-200">
+              An AI-Driven Unified Data Platform for Oceanographic, Fisheries,
+              and Molecular Biodiversity Insights
+            </p>
+            <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Link href="/dashboard">
+                Enter Dashboard <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </main>
+      </div>
+
+      <section id="about" className="py-12 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-primary">
+              Why Aqua Insights?
+            </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+              Our oceans are a complex, interconnected system. Understanding them
+              requires bridging the gap between different scientific domains. Aqua
+              Insights was created to break down data silos and provide a unified
+              platform for researchers, conservationists, and policy-makers.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {features.map((feature) => (
+              <Card key={feature.title} className="bg-card/50 backdrop-blur-sm">
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <feature.icon className="h-10 w-10 text-accent" />
+                  <CardTitle>{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="articles" className="py-12 md:py-20 bg-secondary/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-primary">
+              From the Depths of Data
+            </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+              Explore the latest topics and discoveries in marine science, powered by the kind of analysis our platform enables.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {articles.map((article) => (
+                <Card key={article.id} className="overflow-hidden bg-card/50 backdrop-blur-sm">
+                    <div className="relative h-48 w-full">
+                        <Image src={article.imageUrl} alt={article.title} layout="fill" objectFit="cover" data-ai-hint={article.imageHint} />
+                    </div>
+                    <CardHeader>
+                        <CardTitle className='text-lg'>{article.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground text-sm">{article.summary}</p>
+                    </CardContent>
+                </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-background py-6">
+        <div className="container mx-auto px-4 text-center text-muted-foreground">
+          &copy; 2025 Aqua Insights. All Rights Reserved.
+        </div>
+      </footer>
+    </div>
+  );
 }

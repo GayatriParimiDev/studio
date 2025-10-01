@@ -11,6 +11,12 @@
       "description": "A world map showing ocean currents.",
       "imageUrl": "https://images.pexels.com/photos/4610202/pexels-photo-4610202.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop",
       "imageHint": "ocean map"
+    },
+    {
+      "id": "hero-ocean",
+      "description": "A beautiful underwater scene with sunlight filtering through the water.",
+      "imageUrl": "https://images.pexels.com/photos/164024/pexels-photo-164024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "imageHint": "underwater ocean"
     }
   ]
 }
