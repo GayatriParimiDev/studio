@@ -17,11 +17,7 @@ export type OceanArticleInput = z.infer<typeof OceanArticleInputSchema>;
 
 const ArticleSchema = z.object({
   title: z.string().describe('The title of the article.'),
-  summary: z.string().describe('A brief summary of the article content.'),
-  link: z
-    .string()
-    .url()
-    .describe('A URL to a real, publicly accessible source for the article.'),
+  content: z.string().describe('The full content of the article.'),
 });
 
 const OceanArticleOutputSchema = z.object({
@@ -41,7 +37,7 @@ const prompt = ai.definePrompt({
   name: 'generateOceanArticlesPrompt',
   input: { schema: OceanArticleInputSchema },
   output: { schema: OceanArticleOutputSchema },
-  prompt: `You are a marine science research assistant. Generate a list of 5 recent, engaging mini-articles about the provided topic. For each article, create a compelling title, a concise summary, and find a URL to a real, publicly accessible article from a reputable source like National Geographic, Science Daily, a major university, or a scientific journal.
+  prompt: `You are a marine science content creator. Generate a list of 3 recent, engaging mini-articles about the provided topic. For each article, create a compelling title and write the full article content (around 2-3 paragraphs).
 
 Topic: {{{topic}}}
 `,

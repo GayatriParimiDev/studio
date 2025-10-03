@@ -6,8 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { useToast } from '@/hooks/use-toast';
 import { runGenerateOceanArticles } from '@/lib/actions';
 import { type OceanArticleOutput } from '@/ai/flows/generate-ocean-articles';
-import { Loader2, Sparkles, AlertCircle, Newspaper, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { Loader2, Sparkles, AlertCircle, Newspaper } from 'lucide-react';
+import { Separator } from '../ui/separator';
 
 type Article = OceanArticleOutput['articles'][0];
 
@@ -71,7 +71,7 @@ export default function OceanArticles() {
         </CardContent>
       </Card>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="space-y-6">
         {isLoading && Array.from({ length: 3 }).map((_, index) => (
           <Card key={index} className="w-full bg-card/70 backdrop-blur-lg animate-pulse">
             <CardHeader>
@@ -82,29 +82,22 @@ export default function OceanArticles() {
                 <div className='h-4 bg-muted rounded w-full'></div>
                 <div className='h-4 bg-muted rounded w-full'></div>
                 <div className='h-4 bg-muted rounded w-2/3'></div>
+                 <div className='h-4 bg-muted rounded w-full mt-4'></div>
+                <div className='h-4 bg-muted rounded w-3/4'></div>
               </div>
             </CardContent>
-            <CardFooter>
-                 <div className='h-4 bg-muted rounded w-32'></div>
-            </CardFooter>
           </Card>
         ))}
 
         {!isLoading && articles.map((article, index) => (
-          <Card key={index} className="flex flex-col w-full bg-card/70 backdrop-blur-lg">
+          <Card key={index} className="w-full bg-card/70 backdrop-blur-lg">
             <CardHeader>
               <CardTitle className="text-lg text-primary">{article.title}</CardTitle>
             </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="text-muted-foreground text-sm">{article.summary}</p>
+            <Separator className='-mt-2 mb-6' />
+            <CardContent className="prose prose-sm prose-invert max-w-none text-muted-foreground whitespace-pre-wrap">
+              {article.content}
             </CardContent>
-            <CardFooter>
-               <Button asChild variant="link" className="p-0 h-auto text-accent">
-                <Link href={article.link} target="_blank" rel="noopener noreferrer">
-                  Read Full Article <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </CardFooter>
           </Card>
         ))}
       </div>
