@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Waves, Fish, Dna, Microscope } from 'lucide-react';
+import { ArrowRight, Waves, Fish, Dna } from 'lucide-react';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const features = [
   {
@@ -53,66 +52,84 @@ const articles = [
   },
 ];
 
+function BackgroundVideo() {
+  const videoUrl =
+    'https://videos.pexels.com/video-files/34086730/34086730-hd_1920_1080_30fps.mp4';
+  return (
+    <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
+      <video
+        key={videoUrl}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="h-full w-full object-cover"
+        poster="https://picsum.photos/seed/oceanbg/1920/1080"
+      >
+        <source src={videoUrl} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="absolute inset-0 bg-black/60" />
+    </div>
+  );
+}
+
 export default function LandingPage() {
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-ocean');
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="relative">
-        <div className="absolute inset-0 -z-10 h-[50vh] md:h-[60vh]">
-        {heroImage && (
-             <Image
-             src={heroImage.imageUrl}
-             alt={heroImage.description}
-             fill
-             className="object-cover"
-             data-ai-hint={heroImage.imageHint}
-           />
-        )}
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-        <main className="relative container mx-auto px-4 py-16 text-center text-white">
-          <div className="flex flex-col items-center pt-16 md:pt-24">
-            <div className="flex items-center gap-2 font-semibold text-primary">
-              <Waves className="h-8 w-8 text-accent" />
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Aqua Insights
-              </h1>
-            </div>
-            <p className="mt-4 max-w-2xl text-lg md:text-xl text-neutral-200">
-              An AI-Driven Unified Data Platform for Oceanographic, Fisheries,
-              and Molecular Biodiversity Insights
-            </p>
-            <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="/dashboard">
-                Enter Dashboard <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+      <div className="relative h-screen text-white">
+        <BackgroundVideo />
+        <main className="relative container mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
+          <div className="flex items-center gap-2 font-semibold text-primary">
+            <Waves className="h-10 w-10 text-accent" />
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+              Aqua Insights
+            </h1>
           </div>
+          <p className="mt-4 max-w-3xl text-xl md:text-2xl text-neutral-200">
+            An AI-Driven Unified Data Platform for Oceanographic, Fisheries, and
+            Molecular Biodiversity Insights
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground"
+          >
+            <Link href="/dashboard">
+              Enter Dashboard <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </main>
       </div>
 
-      <section id="about" className="py-12 md:py-20 bg-background">
+      <section id="about" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-primary">
               Why Aqua Insights?
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-              Our oceans are a complex, interconnected system. Understanding them
-              requires bridging the gap between different scientific domains. Aqua
-              Insights was created to break down data silos and provide a unified
-              platform for researchers, conservationists, and policy-makers.
+              Our oceans are a complex, interconnected system. Understanding
+              them requires bridging the gap between different scientific
+              domains. Aqua Insights was created to break down data silos and
+              provide a unified platform for researchers, conservationists, and
+              policy-makers.
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {features.map((feature) => (
-              <Card key={feature.title} className="bg-card/50 backdrop-blur-sm">
+            {features.map(feature => (
+              <Card
+                key={feature.title}
+                className="bg-card/50 backdrop-blur-sm"
+              >
                 <CardHeader className="flex flex-row items-center gap-4">
                   <feature.icon className="h-10 w-10 text-accent" />
                   <CardTitle>{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <p className="text-muted-foreground">
+                    {feature.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -120,29 +137,41 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="articles" className="py-12 md:py-20 bg-secondary/20">
+      <section id="articles" className="py-16 md:py-24 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-primary">
               From the Depths of Data
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-              Explore the latest topics and discoveries in marine science, powered by the kind of analysis our platform enables.
+              Explore the latest topics and discoveries in marine science,
+              powered by the kind of analysis our platform enables.
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {articles.map((article) => (
-                <Card key={article.id} className="overflow-hidden bg-card/50 backdrop-blur-sm">
-                    <div className="relative h-48 w-full">
-                        <Image src={article.imageUrl} alt={article.title} layout="fill" objectFit="cover" data-ai-hint={article.imageHint} />
-                    </div>
-                    <CardHeader>
-                        <CardTitle className='text-lg'>{article.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground text-sm">{article.summary}</p>
-                    </CardContent>
-                </Card>
+            {articles.map(article => (
+              <Card
+                key={article.id}
+                className="overflow-hidden bg-card/50 backdrop-blur-sm"
+              >
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={article.imageUrl}
+                    alt={article.title}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={article.imageHint}
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-lg">{article.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">
+                    {article.summary}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
