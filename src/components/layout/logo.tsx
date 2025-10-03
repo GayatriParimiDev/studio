@@ -4,22 +4,25 @@ export default function Logo({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      viewBox="0 0 256 256"
       role="img"
       aria-label="Aqua Insights Wave Logo"
       className={cn('h-8 w-8', className)}
     >
-      <path d="M3 12c4.25-2.25 7.75-2.25 12 0" />
-      <path d="M3 7c4.25-2.25 7.75-2.25 12 0" />
-      <path d="M3 17c4.25-2.25 7.75-2.25 12 0" />
-      <path d="M18 12c2.5-1.5 4-1.5 4 0 0 1.5-1.5 1.5-4 0" />
-      <path d="M18 7c2.5-1.5 4-1.5 4 0 0 1.5-1.5 1.5-4 0" />
-      <path d="M18 17c2.5-1.5 4-1.5 4 0 0 1.5-1.5 1.5-4 0" />
+      <defs>
+        <linearGradient id="oceanBlue" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#1E90FF" />
+          <stop offset="100%" stopColor="#0266D3" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#oceanBlue)"
+        d="M48 164 c22-38 84-60 126-22 c12 11 12 28 0 40 c-26 25 -70 20 -92 6 c18 6 44-6 44-27 c0-24 -30-35 -58-26 c-18 6 -30 18 -44 29 z"
+      />
+      <path
+        fill="url(#oceanBlue)"
+        d="M182 84 c10-7 24 5 17 16 c-7 11 -24 5 -17-16 z"
+      />
     </svg>
   );
 }
