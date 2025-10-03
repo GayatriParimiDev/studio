@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
-  Database,
   Download,
   Dna,
   LayoutDashboard,
@@ -13,6 +12,7 @@ import {
   Upload,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 
 const menuItems = [
   { href: '/dashboard', label: 'Ocean Viewer', icon: LayoutDashboard },
@@ -31,10 +31,16 @@ export default function AppSidebar() {
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b border-sidebar-border px-4 lg:h-[60px] lg:px-6">
         <Link
-          href="/dashboard"
+          href="/"
           className="flex items-center gap-2 font-semibold text-primary"
         >
-          <Database className="h-6 w-6 text-accent" />
+          <Image
+            src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/c385a917-02ae-4649-b81a-88789d7b231f.png"
+            alt="Aqua Insights Logo"
+            width={28}
+            height={28}
+            className="text-accent"
+          />
           <span className="">Aqua Insights</span>
         </Link>
       </div>

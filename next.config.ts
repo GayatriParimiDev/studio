@@ -62,6 +62,12 @@ const nextConfig: NextConfig = {
         hostname: 't4.ftcdn.net',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'user-gen-media-assets.s3.amazonaws.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
