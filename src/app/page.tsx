@@ -47,7 +47,7 @@ const articles = [
     title: 'Connecting the Dots: Ocean Currents and Species Distribution',
     summary:
       'Oceanographic parameters like temperature and salinity are deeply connected to where marine life thrives. Our platform helps correlate this data to predict how changes in ocean climate might impact fish populations and biodiversity hotspots across the globe.',
-    imageUrl: 'https://picsum.photos/seed/article3/600/400',
+    imageUrl: 'https://t4.ftcdn.net/jpg/02/78/12/73/360_F_278127372_mWGRfu0XaAaJbrGCCo4b4WHLaXU4U3p7.jpg',
     imageHint: 'ocean currents map',
   },
 ];
