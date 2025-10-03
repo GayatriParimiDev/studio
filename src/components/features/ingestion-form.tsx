@@ -10,36 +10,66 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Upload, Loader2, CheckCircle } from 'lucide-react';
+import { Upload, Loader2, CheckCircle, FileCheck } from 'lucide-react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
+import { format } from 'date-fns';
 
 const formSchema = z.object({
   dataType: z.string({ required_error: 'Please select a data type.' }),
-  file: z.any().refine((file) => file?.length == 1, 'File is required.'),
+  file: z.any().refine((files) => files?.length == 1, 'File is required.'),
 });
+
+type IngestedFile = {
+    name: string;
+    type: string;
+    ingestedAt: Date;
+}
 
 export default function IngestionForm() {
   const { toast } = useToast();
   const [isUploading, setIsUploading] = useState(false);
+  const [ingestedFiles, setIngestedFiles] = useState<IngestedFile[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+        dataType: undefined,
+        file: undefined,
+    }
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     setIsUploading(true);
+    const file = values.file[0];
+    
     // Simulate upload process
     setTimeout(() => {
       setIsUploading(false);
+      
+      const newFile: IngestedFile = {
+        name: file.name,
+        type: values.dataType,
+        ingestedAt: new Date(),
+      };
+      setIngestedFiles(prev => [newFile, ...prev]);
+
       toast({
         title: 'Upload Successful',
-        description: `${values.file[0].name} has been ingested successfully.`,
+        description: `${file.name} has been ingested successfully.`,
         action: <CheckCircle className="text-green-500" />,
       });
-      form.reset({ dataType: '', file: undefined });
+
+      form.reset({ dataType: values.dataType, file: undefined });
+       const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+        if (fileInput) {
+            fileInput.value = '';
+        }
+
     }, 2000);
   };
 
   return (
+    <div className='space-y-6'>
     <Card className="w-full bg-card/70 backdrop-blur-lg">
       <CardHeader>
         <CardTitle className="text-accent flex items-center gap-2">
@@ -58,7 +88,7 @@ export default function IngestionForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Dataset Type</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select a dataset type to upload" />
@@ -107,5 +137,39 @@ export default function IngestionForm() {
         </Form>
       </CardContent>
     </Card>
+
+    {ingestedFiles.length > 0 && (
+        <Card className="w-full bg-card/70 backdrop-blur-lg">
+            <CardHeader>
+                <CardTitle className='text-accent flex items-center gap-2'>
+                    <FileCheck/> Recently Ingested Datasets
+                </CardTitle>
+                <CardDescription>
+                    A log of the datasets you have recently uploaded.
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>File Name</TableHead>
+                            <TableHead>Dataset Type</TableHead>
+                            <TableHead>Ingestion Time</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {ingestedFiles.map((file, index) => (
+                            <TableRow key={index}>
+                                <TableCell className='font-medium'>{file.name}</TableCell>
+                                <TableCell className='capitalize'>{file.type}</TableCell>
+                                <TableCell>{format(file.ingestedAt, "PPpp")}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </CardContent>
+        </Card>
+    )}
+    </div>
   );
 }
