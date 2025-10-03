@@ -24,10 +24,6 @@ export default function AppHeader() {
         </SheetContent>
       </Sheet>
       <div className="w-full flex-1">{/* Placeholder for search or breadcrumbs */}</div>
-      <Avatar>
-        <AvatarImage src="https://picsum.photos/seed/user/40/40" alt="User" />
-        <AvatarFallback>CM</AvatarFallback>
-      </Avatar>
     </header>
   );
 }
