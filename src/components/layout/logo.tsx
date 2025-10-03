@@ -28,18 +28,6 @@ export default function Logo({ className }: { className?: string }) {
         fill="url(#grad2)"
         d="M10,150 C50,110 90,110 128,150 S190,190 246,150 L246,200 C190,260 80,260 10,200 Z"
       />
-      <path
-        fill="none"
-        stroke="#1E90FF"
-        strokeWidth="5"
-        d="M20,190 C80,160 160,160 236,190"
-      />
-      <path
-        fill="none"
-        stroke="#00BFFF"
-        strokeWidth="5"
-        d="M30,210 C90,180 170,180 226,210"
-      />
     </svg>
   );
 }
