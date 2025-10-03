@@ -84,7 +84,7 @@ export default function LandingPage() {
         <BackgroundVideo />
         <main className="relative container mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
           <div className="flex items-center gap-4 font-semibold text-primary">
-            <Logo className="h-16 w-16 text-accent" />
+            <Logo className="h-16 w-16 text-white" />
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
               Aqua Insights
             </h1>

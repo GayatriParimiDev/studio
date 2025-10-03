@@ -3,33 +3,39 @@ import { cn } from '@/lib/utils';
 export default function Logo({ className }: { className?: string }) {
   return (
     <svg
-      width="64"
-      height="64"
-      viewBox="0 0 64 64"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('h-8 w-8 text-primary', className)}
+      viewBox="0 0 256 256"
+      role="img"
+      aria-labelledby="title desc"
+      className={cn('h-8 w-8', className)}
     >
+      <title id="title">Ocean Wave Logo</title>
+      <desc id="desc">A stylized blue ocean wave mark with no background</desc>
+      <defs>
+        <linearGradient id="oceanBlue" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#1E90FF" />
+          <stop offset="100%" stopColor="#0266D3" />
+        </linearGradient>
+      </defs>
+
       <path
-        d="M32 5.33331C17.28 5.33331 5.33337 17.28 5.33337 32C5.33337 46.72 17.28 58.6666 32 58.6666C46.72 58.6666 58.6667 46.72 58.6667 32C58.6667 17.28 46.72 5.33331 32 5.33331Z"
-        stroke="hsl(var(--primary))"
-        strokeWidth="4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill="url(#oceanBlue)"
+        d="M48 164
+    c22-38 84-60 126-22
+    c12 11 12 28 0 40
+    c-26 25 -70 20 -92 6
+    c18 6 44-6 44-27
+    c0-24 -30-35 -58-26
+    c-18 6 -30 18 -44 29
+    z"
       />
+
       <path
-        d="M21.3334 34.6667C21.3334 34.6667 24 37.3333 26.6667 37.3333C29.3334 37.3333 32 32 32 32C32 32 34.6667 26.6667 37.3334 26.6667C40 26.6667 42.6667 29.3333 42.6667 29.3333"
-        stroke="hsl(var(--accent))"
-        strokeWidth="4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M26.6667 42.6667C26.6667 42.6667 29.3333 45.3333 32 45.3333C34.6667 45.3333 37.3333 40 37.3333 40"
-        stroke="hsl(var(--accent))"
-        strokeWidth="4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill="url(#oceanBlue)"
+        d="M182 84
+    c10-7 24 5 17 16
+    c-7 11 -24 5 -17-16
+    z"
       />
     </svg>
   );
