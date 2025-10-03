@@ -21,7 +21,7 @@ const ArticleSchema = z.object({
   link: z
     .string()
     .url()
-    .describe('A plausible URL to a reputable source for the article.'),
+    .describe('A URL to a real, publicly accessible source for the article.'),
 });
 
 const OceanArticleOutputSchema = z.object({
@@ -41,7 +41,7 @@ const prompt = ai.definePrompt({
   name: 'generateOceanArticlesPrompt',
   input: { schema: OceanArticleInputSchema },
   output: { schema: OceanArticleOutputSchema },
-  prompt: `You are a marine science journalist. Generate a list of 5 recent, engaging mini-articles about the provided topic. For each article, create a compelling title, a concise summary, and a plausible (but fictional) URL from a well-known publisher like National Geographic, Science Daily, or a major university.
+  prompt: `You are a marine science research assistant. Generate a list of 5 recent, engaging mini-articles about the provided topic. For each article, create a compelling title, a concise summary, and find a URL to a real, publicly accessible article from a reputable source like National Geographic, Science Daily, a major university, or a scientific journal.
 
 Topic: {{{topic}}}
 `,

@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { useToast } from '@/hooks/use-toast';
 import { runGenerateOceanArticles } from '@/lib/actions';
 import { type OceanArticleOutput } from '@/ai/flows/generate-ocean-articles';
-import { Loader2, Sparkles, AlertCircle, Newspaper } from 'lucide-react';
+import { Loader2, Sparkles, AlertCircle, Newspaper, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 type Article = OceanArticleOutput['articles'][0];
 
@@ -97,6 +98,13 @@ export default function OceanArticles() {
             <CardContent className="flex-grow">
               <p className="text-muted-foreground text-sm">{article.summary}</p>
             </CardContent>
+            <CardFooter>
+               <Button asChild variant="link" className="p-0 h-auto text-accent">
+                <Link href={article.link} target="_blank" rel="noopener noreferrer">
+                  Read Full Article <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </CardFooter>
           </Card>
         ))}
       </div>
