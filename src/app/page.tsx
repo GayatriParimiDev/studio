@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Waves, Fish, Dna } from 'lucide-react';
 import Image from 'next/image';
+import Logo from '@/components/layout/logo';
 
 const features = [
   {
@@ -39,7 +40,8 @@ const articles = [
     title: 'eDNA: Unlocking Marine Biodiversity from a Drop of Water',
     summary:
       'Environmental DNA (eDNA) is revolutionizing how we monitor marine ecosystems. By sequencing DNA fragments in the water, scientists can detect species presence without ever seeing or capturing them, offering a non-invasive tool for biodiversity assessment.',
-    imageUrl: 'https://www.msc.org/images/default-source/au-library/marine-biodiversity-marine-stewardship-council.jpg?sfvrsn=87ef96e8_4',
+    imageUrl:
+      'https://www.msc.org/images/default-source/au-library/marine-biodiversity-marine-stewardship-council.jpg?sfvrsn=87ef96e8_4',
     imageHint: 'marine biodiversity',
   },
   {
@@ -47,7 +49,8 @@ const articles = [
     title: 'Connecting the Dots: Ocean Currents and Species Distribution',
     summary:
       'Oceanographic parameters like temperature and salinity are deeply connected to where marine life thrives. Our platform helps correlate this data to predict how changes in ocean climate might impact fish populations and biodiversity hotspots across the globe.',
-    imageUrl: 'https://t4.ftcdn.net/jpg/02/78/12/73/360_F_278127372_mWGRfu0XaAaJbrGCCo4b4WHLaXU4U3p7.jpg',
+    imageUrl:
+      'https://t4.ftcdn.net/jpg/02/78/12/73/360_F_278127372_mWGRfu0XaAaJbrGCCo4b4WHLaXU4U3p7.jpg',
     imageHint: 'ocean currents map',
   },
 ];
@@ -81,13 +84,7 @@ export default function LandingPage() {
         <BackgroundVideo />
         <main className="relative container mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
           <div className="flex items-center gap-4 font-semibold text-primary">
-            <Image
-              src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/923f58b0-ebf8-4728-8d9d-0652f2bfc035.png"
-              alt="Aqua Insights Logo"
-              width={64}
-              height={64}
-              className="mix-blend-lighten"
-            />
+            <Logo className="h-16 w-16 text-accent" />
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
               Aqua Insights
             </h1>
@@ -123,7 +120,7 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {features.map(feature => (
+            {features.map((feature) => (
               <Card
                 key={feature.title}
                 className="bg-card/50 backdrop-blur-sm"
@@ -155,7 +152,7 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {articles.map(article => (
+            {articles.map((article) => (
               <Card
                 key={article.id}
                 className="overflow-hidden bg-card/50 backdrop-blur-sm"

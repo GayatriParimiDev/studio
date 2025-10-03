@@ -12,14 +12,24 @@ import {
   Upload,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
+import Logo from './logo';
 
 const menuItems = [
   { href: '/dashboard', label: 'Ocean Viewer', icon: LayoutDashboard },
   { href: '/dashboard/ingestion', label: 'Data Ingestion', icon: Upload },
-  { href: '/dashboard/correlation', label: 'Correlation Analysis', icon: Unplug, isAi: true },
+  {
+    href: '/dashboard/correlation',
+    label: 'Correlation Analysis',
+    icon: Unplug,
+    isAi: true,
+  },
   { href: '/dashboard/otolith', label: 'Otolith Visualizer', icon: Microscope },
-  { href: '/dashboard/taxonomy', label: 'Taxonomic Assistant', icon: Ship, isAi: true },
+  {
+    href: '/dashboard/taxonomy',
+    label: 'Taxonomic Assistant',
+    icon: Ship,
+    isAi: true,
+  },
   { href: '/dashboard/edna', label: 'eDNA Module', icon: Dna },
   { href: '/dashboard/export', label: 'Data Export', icon: Download },
 ];
@@ -34,13 +44,7 @@ export default function AppSidebar() {
           href="/"
           className="flex items-center gap-2 font-semibold text-primary"
         >
-          <Image
-            src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/923f58b0-ebf8-4728-8d9d-0652f2bfc035.png"
-            alt="Aqua Insights Logo"
-            width={32}
-            height={32}
-            className="mix-blend-lighten"
-          />
+          <Logo className="h-8 w-8 text-accent" />
           <span className="">Aqua Insights</span>
         </Link>
       </div>
@@ -52,7 +56,8 @@ export default function AppSidebar() {
               href={item.href}
               className={cn(
                 'flex items-center gap-3 rounded-lg px-3 py-3 text-sidebar-foreground transition-all hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
-                pathname === item.href && 'bg-sidebar-accent text-sidebar-accent-foreground'
+                pathname === item.href &&
+                  'bg-sidebar-accent text-sidebar-accent-foreground'
               )}
             >
               <item.icon className="h-4 w-4" />
