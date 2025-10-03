@@ -35,7 +35,7 @@ export default function AppSidebar() {
           className="flex items-center gap-2 font-semibold text-primary"
         >
           <Image
-            src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/c385a917-02ae-4649-b81a-88789d7b231f.png"
+            src="https://storage.googleapis.com/stedi-assets/aqua-insights-logo.png"
             alt="Aqua Insights Logo"
             width={32}
             height={32}

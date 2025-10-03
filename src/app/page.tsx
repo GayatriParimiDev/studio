@@ -82,7 +82,7 @@ export default function LandingPage() {
         <main className="relative container mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
           <div className="flex items-center gap-4 font-semibold text-primary">
             <Image
-              src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/c385a917-02ae-4649-b81a-88789d7b231f.png"
+              src="https://storage.googleapis.com/stedi-assets/aqua-insights-logo.png"
               alt="Aqua Insights Logo"
               width={64}
               height={64}
