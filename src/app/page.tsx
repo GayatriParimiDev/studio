@@ -80,8 +80,14 @@ export default function LandingPage() {
       <div className="relative h-screen text-white">
         <BackgroundVideo />
         <main className="relative container mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
-          <div className="flex items-center gap-2 font-semibold text-primary">
-            <Waves className="h-10 w-10 text-accent" />
+          <div className="flex items-center gap-4 font-semibold text-primary">
+            <Image
+              src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/c385a917-02ae-4649-b81a-88789d7b231f.png"
+              alt="Aqua Insights Logo"
+              width={64}
+              height={64}
+              className="mix-blend-lighten"
+            />
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
               Aqua Insights
             </h1>

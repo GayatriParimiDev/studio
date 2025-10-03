@@ -37,9 +37,9 @@ export default function AppSidebar() {
           <Image
             src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/c385a917-02ae-4649-b81a-88789d7b231f.png"
             alt="Aqua Insights Logo"
-            width={28}
-            height={28}
-            className="text-accent"
+            width={32}
+            height={32}
+            className="mix-blend-lighten"
           />
           <span className="">Aqua Insights</span>
         </Link>
