@@ -3,8 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
-  Download,
-  Dna,
+  Newspaper,
   LayoutDashboard,
   Microscope,
   Unplug,
@@ -28,8 +27,12 @@ const menuItems = [
     icon: Ship,
     isAi: true,
   },
-  { href: '/dashboard/edna', label: 'eDNA Module', icon: Dna },
-  { href: '/dashboard/export', label: 'Data Export', icon: Download },
+  {
+    href: '/dashboard/articles',
+    label: 'Ocean Articles',
+    icon: Newspaper,
+    isAi: true,
+  },
 ];
 
 export default function AppSidebar() {

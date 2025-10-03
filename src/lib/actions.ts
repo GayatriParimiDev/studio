@@ -6,6 +6,11 @@ import {
   type CrossDomainCorrelationOutput,
 } from '@/ai/flows/cross-domain-correlation';
 import {
+  generateOceanArticles,
+  type OceanArticleInput,
+  type OceanArticleOutput,
+} from '@/ai/flows/generate-ocean-articles';
+import {
   identifySpecies,
   type IdentifySpeciesInput,
   type IdentifySpeciesOutput,
@@ -28,6 +33,10 @@ const IdentifySpeciesInputSchema = z.object({
   characteristics: z.string().min(10, "Please provide more detailed characteristics."),
 });
 
+const OceanArticleInputSchema = z.object({
+  topic: z.string(),
+});
+
 export async function runCrossDomainCorrelation(
   input: CrossDomainCorrelationInput
 ): Promise<CrossDomainCorrelationOutput> {
@@ -40,4 +49,11 @@ export async function runIdentifySpecies(
 ): Promise<IdentifySpeciesOutput> {
   const validatedInput = IdentifySpeciesInputSchema.parse(input);
   return await identifySpecies(validatedInput);
+}
+
+export async function runGenerateOceanArticles(
+  input: OceanArticleInput
+): Promise<OceanArticleOutput> {
+  const validatedInput = OceanArticleInputSchema.parse(input);
+  return await generateOceanArticles(validatedInput);
 }
