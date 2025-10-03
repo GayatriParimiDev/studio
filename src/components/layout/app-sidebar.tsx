@@ -10,6 +10,7 @@ import {
   Unplug,
   Ship,
   Upload,
+  FileCheck,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Logo from './logo';
@@ -17,6 +18,11 @@ import Logo from './logo';
 const menuItems = [
   { href: '/dashboard', label: 'Ocean Viewer', icon: LayoutDashboard },
   { href: '/dashboard/ingestion', label: 'Data Ingestion', icon: Upload },
+  {
+    href: '/dashboard/ingested-data',
+    label: 'Ingested Data',
+    icon: FileCheck,
+  },
   {
     href: '/dashboard/correlation',
     label: 'Correlation Analysis',
