@@ -39,8 +39,8 @@ const articles = [
     title: 'eDNA: Unlocking Marine Biodiversity from a Drop of Water',
     summary:
       'Environmental DNA (eDNA) is revolutionizing how we monitor marine ecosystems. By sequencing DNA fragments in the water, scientists can detect species presence without ever seeing or capturing them, offering a non-invasive tool for biodiversity assessment.',
-    imageUrl: 'https://picsum.photos/seed/article2/600/400',
-    imageHint: 'marine biology lab',
+    imageUrl: 'https://www.msc.org/images/default-source/au-library/marine-biodiversity-marine-stewardship-council.jpg?sfvrsn=87ef96e8_4',
+    imageHint: 'marine biodiversity',
   },
   {
     id: 'article-3',

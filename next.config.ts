@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https',
+        protocol: 'https' ,
         hostname: 'images.pexels.com',
         port: '',
         pathname: '/**',
@@ -48,6 +48,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'uni.hi.is',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.msc.org',
         port: '',
         pathname: '/**',
       }
