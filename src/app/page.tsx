@@ -31,7 +31,7 @@ const articles = [
     title: 'The Silent Storytellers: What Otoliths Reveal About Fish',
     summary:
       'Fish ear stones, or otoliths, are more than just biological structures; they are natural data recorders. By analyzing their growth rings, we can determine the age, growth rate, and environmental conditions a fish has experienced, providing invaluable data for fisheries management.',
-    imageUrl: 'https://storage.googleapis.com/project-spark-302300-images/dev/73911634_1758550796349.png',
+    imageUrl: 'https://uni.hi.is/scampana/files/2016/10/shape-2-eng.jpg',
     imageHint: 'otolith fish anatomy',
   },
   {
